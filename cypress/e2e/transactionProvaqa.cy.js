@@ -1,16 +1,11 @@
 import { USER } from '../fixtures/constLogin'
 import { CUSTOMER } from '../fixtures/customers'
 
-describe('QA Challenge', () => {
+describe('Include transaction page tests', () => {
 
     beforeEach(() => {
         cy.visit('/desafioqa/')
         cy.loginProvaqa(USER.username, USER.password)
-        cy.navigateToCustomerList()
-        cy.clickCleanBase()
-    })
-
-    afterEach(() => {
         cy.navigateToCustomerList()
         cy.clickCleanBase()
     })
@@ -62,6 +57,5 @@ describe('QA Challenge', () => {
         cy.clickSave()
         cy.validateSuccessAlertNotBeVisible()
     })
-
 
 })

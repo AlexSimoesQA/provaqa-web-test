@@ -1,7 +1,7 @@
 import { USER } from '../fixtures/constLogin'
 import { CUSTOMER, INACTIVE } from '../fixtures/customers'
 
-describe('Tests of include customer page', () => {
+describe('Include customer page tests', () => {
 
     beforeEach(() => {
         cy.visit('/desafioqa/')

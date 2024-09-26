@@ -1,6 +1,6 @@
 import { USER, INVALID_USERNAME, INVALID_PWD, INVALID_CREDENTIALS } from '../fixtures/constLogin'
 
-describe('QA Challenge', () => {
+describe('Login page tests', () => {
 
     beforeEach(() => {
         cy.visit('/desafioqa/')
