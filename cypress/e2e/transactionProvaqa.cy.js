@@ -20,13 +20,13 @@ describe('QA Challenge', () => {
         cy.typeName(CUSTOMER.name)
         cy.typeCpf(CUSTOMER.cpf)
         cy.typeStatus(CUSTOMER.status)
-        cy.typeCustomerBalance(CUSTOMER.customerBalance)
+        cy.typeCustomerBalance(CUSTOMER.balance)
         cy.clickSave()
         cy.wait(2000)
 
         cy.navigateToIncludeTransaction()
         cy.selectCustomer(CUSTOMER.name)
-        cy.typeTransactionValue(CUSTOMER.customerBalance)
+        cy.typeTransactionValue(CUSTOMER.balance)
         cy.clickSave()
         cy.validateSuccessTransactionText()
     })
@@ -36,7 +36,7 @@ describe('QA Challenge', () => {
         cy.typeName(CUSTOMER.name)
         cy.typeCpf(CUSTOMER.cpf)
         cy.typeStatus(CUSTOMER.status)
-        cy.typeCustomerBalance(CUSTOMER.customerBalance)
+        cy.typeCustomerBalance(CUSTOMER.balance)
         cy.clickSave()
         cy.wait(2000)
 
@@ -47,12 +47,12 @@ describe('QA Challenge', () => {
         cy.validateSuccessTransactionText()
     })
 
-    it.only('Purchase not possible with amount greater than balance', () => {
+    it('Purchase not possible with amount greater than balance', () => {
         cy.navigateToIncludeCustomer()
         cy.typeName(CUSTOMER.name)
         cy.typeCpf(CUSTOMER.cpf)
         cy.typeStatus(CUSTOMER.status)
-        cy.typeCustomerBalance(CUSTOMER.customerBalance)
+        cy.typeCustomerBalance(CUSTOMER.balance)
         cy.clickSave()
         cy.wait(2000)
 

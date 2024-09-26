@@ -18,7 +18,7 @@ describe('QA Challenge', () => {
         cy.typeName(CUSTOMER.name)
         cy.typeCpf(CUSTOMER.cpf)
         cy.typeStatus(CUSTOMER.status)
-        cy.typeCustomerBalance(CUSTOMER.customerBalance)
+        cy.typeCustomerBalance(CUSTOMER.balance)
         cy.clickSave()
         cy.validateCustomerSuccessAlert()
     })
