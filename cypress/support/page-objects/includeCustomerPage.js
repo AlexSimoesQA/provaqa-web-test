@@ -27,3 +27,15 @@ Cypress.Commands.add('clickSave', () => {
 Cypress.Commands.add('validateCustomerSuccessAlert', () => {
     cy.get('#alertMessage').should('contain', 'Cliente salvo com sucesso')
 })
+
+Cypress.Commands.add('validateNameIsRequired', () => {
+    cy.get('small[data-bv-for="nome"]').should('be.visible')
+})
+
+Cypress.Commands.add('validateCpfIsRequired', () => {
+    cy.get('small[data-bv-for="cpf"]').should('be.visible')
+})
+
+Cypress.Commands.add('validateBalanceIsRequired', () => {
+    cy.get('small[data-bv-for="saldoCliente"]').should('be.visible')
+})
