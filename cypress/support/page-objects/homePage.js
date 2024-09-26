@@ -15,3 +15,9 @@ Cypress.Commands.add('clickCleanBase', () => {
     cy.get('input[value="Limpar Base"]').click()
     cy.get('#alertMessage').should('contain', 'Base Limpa com sucesso')
 })
+
+Cypress.Commands.add('navigateToIncludeTransaction', () => {
+    cy.get('[title="QA"]').realHover()
+    cy.get('[title="Transações"]').should('be.visible').realHover()
+    cy.contains('a[title="Dashboard"]', 'Incluir').should('be.visible').click()
+})
