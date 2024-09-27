@@ -1,5 +1,5 @@
 import { USER } from '../fixtures/constLogin'
-import { CUSTOMER } from '../fixtures/customers'
+import { CUSTOMER, BALANCE, toReais } from '../fixtures/customers'
 
 describe('Include transaction page tests', () => {
 
@@ -24,6 +24,9 @@ describe('Include transaction page tests', () => {
         cy.typeTransactionValue(CUSTOMER.balance)
         cy.clickSave()
         cy.validateSuccessTransactionText()
+        cy.navigateToCustomerList()
+        cy.searchForName(CUSTOMER.name)
+        cy.validateBalanceDeduction(toReais(CUSTOMER.balance), toReais(CUSTOMER.balance))
     })
 
     it('Purchase possible with amount less than balance', () => {
@@ -37,9 +40,12 @@ describe('Include transaction page tests', () => {
 
         cy.navigateToIncludeTransaction()
         cy.selectCustomer(CUSTOMER.name)
-        cy.typeTransactionValue('1')
+        cy.typeTransactionValue(BALANCE.oneCent)
         cy.clickSave()
         cy.validateSuccessTransactionText()
+        cy.navigateToCustomerList()
+        cy.searchForName(CUSTOMER.name)
+        cy.validateBalanceDeduction(toReais(CUSTOMER.balance), toReais(BALANCE.oneCent))
     })
 
     it('Purchase not possible with amount greater than balance', () => {
