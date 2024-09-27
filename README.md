@@ -13,12 +13,13 @@ Esse projeto contém testes automatizados da aplicação de testes WEB [ProvaQA]
 ## Para executar os testes no modo Headless, abra o terminal no VS Code e execute o comando:
 `npx cypress run`
 
-##Caso aconteça erro na execução do projeto:
-Apague a pasta node_modules e o arquivo package-lock.json, os dois arquivos encontram-se na raiz do projeto.
-Após apagar os arquivos, execute o comando npm i
+## Caso aconteça erro na execução do projeto:
+
+Apague a pasta `node_modules` e o arquivo `package-lock.json`, os dois encontram-se na raiz do projeto.
+Após deletados, execute o comando `npm i`
 
 ## Tecnologias utilizadas:
 
 - **Cypress**
 - **Javascript**
-- **Node20**
+- **Node v20**
