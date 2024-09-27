@@ -64,4 +64,29 @@ describe('Include transaction page tests', () => {
         cy.validateSuccessAlertNotBeVisible()
     })
 
+    it('Purchase possible with customer balance equal zero', () => {
+        cy.navigateToIncludeCustomer()
+        cy.typeName(CUSTOMER.name)
+        cy.typeCpf(CUSTOMER.cpf)
+        cy.typeStatus(CUSTOMER.status)
+        cy.typeCustomerBalance(CUSTOMER.balance)
+        cy.clickSave()
+        cy.wait(2000)
+
+        cy.navigateToIncludeTransaction()
+        cy.selectCustomer(CUSTOMER.name)
+        cy.typeTransactionValue(CUSTOMER.balance)
+        cy.clickSave()
+        cy.validateSuccessTransactionText()
+        cy.navigateToCustomerList()
+        cy.searchForName(CUSTOMER.name)
+        cy.validateBalanceDeduction(toReais(CUSTOMER.balance), toReais(CUSTOMER.balance))
+
+        cy.navigateToIncludeTransaction()
+        cy.selectCustomer(CUSTOMER.name)
+        cy.typeTransactionValue(CUSTOMER.balance)
+        cy.clickSave()
+        cy.validateSuccessAlertNotBeVisible()
+    })
+
 })
